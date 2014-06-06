@@ -7,7 +7,7 @@ module Puppet::Parser::Functions
 
     # get fact getent_passwd and convert it into hash of user entries
     dirs={}
-    entires = lookupvar('getent_passwd').split('|')
+    entires = lookupvar('::getent_passwd').split('|')
     entires.each do |item|
       user,pw,uid,gid,gecos,homedir,shell = item.split(':')
       dirs[user] = homedir ? homedir : ""
@@ -33,14 +33,14 @@ module Puppet::Parser::Functions
 
     # get fact getent_passwd and convert it into hash of user entries
     gids={}
-    p_entires = lookupvar('getent_passwd').split('|')
+    p_entires = lookupvar('::getent_passwd').split('|')
     p_entires.each do |item|
       user,pw,uid,gid,gecos,homedir,shell = item.split(':')
       gids[user] = gid ? gid : ""
     end
 
     groups={}
-    g_entires = lookupvar('getent_group').split('|')
+    g_entires = lookupvar('::getent_group').split('|')
     g_entires.each do |item|
       group,pw,gid = item.split(':')
       groups[gid] = group ? group : ""
