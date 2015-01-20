@@ -18,8 +18,6 @@ class sshauth::keymaster {
     # Set up key storage
     file { $sshauth::params::keymaster_storage:
         ensure => directory,
-        owner  => 'puppet',
-        group  => 'puppet',
         mode   => '0644',
     }
 
