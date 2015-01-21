@@ -17,7 +17,7 @@ define sshauth::key::master (
     Exec { path => '/usr/bin:/usr/sbin:/bin:/sbin' }
     
     File {
-        mode  => '0600',
+        mode  => '0644',
     }
 
     $keydir  = "${sshauth::params::keymaster_storage}/${name}"
